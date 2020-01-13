@@ -1,0 +1,44 @@
+package A1;
+
+public class DrivingCostCalculator {
+	
+	public static double calculateGasTripCost(double milesToDrive, double milesPerGallon, double dollarsPerGallon) {
+		double gallonsUsed = (milesToDrive / milesPerGallon);
+		double gasTripCost = (gallonsUsed * dollarsPerGallon);
+		return gasTripCost;
+	}
+	
+	public static double calculateElectricTripCost(double milesToDrive, double milesPerKWh, double dollarsPerKWh) {
+		double kilowattsUsed = (milesToDrive / milesPerKWh);
+		double electricTripCost = (kilowattsUsed * dollarsPerKWh);
+		return electricTripCost;
+	}
+	
+	public static void displayBanner() {
+		System.out.println("***********************************"); 
+		System.out.println("*     Driving Cost Calculator     *");
+		System.out.println("***********************************");
+		
+	}
+
+	public static void main(String[] args) {
+		
+		double milesToDrive = 100.0;
+		double milesPerGallon = 10.0;  
+		double dollarsPerGallon = 2.0; 
+		double milesPerKWh = 4.0; 
+		double dollarsPerKWh = 0.106;
+		
+		displayBanner();
+		
+		double gasTripCost = calculateGasTripCost(milesToDrive, milesPerGallon, dollarsPerGallon);
+		String formattedGasTripCost = String.format("%.2f", gasTripCost);
+		System.out.println(formattedGasTripCost);
+		
+		double electricTripCost = calculateElectricTripCost(milesToDrive, milesPerKWh, dollarsPerKWh);
+		String formattedElectricTripCost = String.format("%.2f", electricTripCost);
+		System.out.println(formattedElectricTripCost);
+
+	}
+
+}
